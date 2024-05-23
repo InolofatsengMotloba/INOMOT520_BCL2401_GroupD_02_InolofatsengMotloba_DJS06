@@ -20,7 +20,7 @@ names.forEach((name) => console.log(name));
 
 names.forEach((name, index) => console.log(`${name} (${provinces[index]})`)); // Matches names and provinces in corresponding order
 
-// Uppercase Transformation: Creates a new array of province names in all uppercase. Log the new array to the console.
+// Uppercase Transformation: Creates a new array of province names in all uppercase. Logs the new array to the console.
 const upperCaseProvinces = provinces.map((province) => province.toUpperCase());
 console.log(upperCaseProvinces);
 
@@ -31,3 +31,7 @@ console.log(nameLengths);
 // Sorting: Alphabetically sort the provinces.
 provinces.sort();
 console.log(provinces);
+
+// Filtering Cape: Removes provinces containing "Cape". Logs the count of remaining provinces.
+const provincesWithoutCape = provinces.filter((province) => !province.includes("Cape"));
+console.log(provincesWithoutCape.length);
