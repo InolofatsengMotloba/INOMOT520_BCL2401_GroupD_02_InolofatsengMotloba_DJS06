@@ -39,3 +39,10 @@ console.log(provincesWithoutCape.length);
 // Finding 'S': Creates a boolean array to determine if a name contains the letter 'S'.
 const hasS = names.map((name) => name.toLowerCase().includes("s"));
 console.log(hasS);
+
+// Creating Object Mapping: Transforms the names array into an object, mapping names to their respective provinces.
+const nameProvinceMap = names.reduce((acc, name, index) => {
+  acc[name] = provinces[index] || "No Province Assigned"; // Assign if no province is available
+  return acc;
+}, {});
+console.log(nameProvinceMap);
