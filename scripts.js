@@ -69,6 +69,11 @@ const products = [
 const productsData = {
   // Iterates over the products array & logs each product name
   productName: products.map((name) => name.product).join(", "),
+
+  // Filters out products with names longer than 5 characters
+  productsFilteredByNameLength: products
+    .filter((name) => name.product.length <= 5)
+    .map((name) => name.product),
 };
 
 console.log(productsData);
