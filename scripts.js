@@ -89,6 +89,23 @@ const productsData = {
     (acc, product) => acc + product.product,
     ""
   ),
+
+  // Identify the highest and lowest-priced items & returns a string
+  priceExtremes: (() => {
+    const validProducts = products.filter(
+      (item) => !isNaN(item.price) && item.price !== "" && item.price !== " "
+    );
+    const prices = validProducts.map((item) => Number(item.price));
+
+    const highestPricedItem = validProducts.find(
+      (item) => Number(item.price) === Math.max(...prices)
+    );
+    const lowestPricedItem = validProducts.find(
+      (item) => Number(item.price) === Math.min(...prices)
+    );
+
+    return `Highest: ${highestPricedItem.product}. Lowest: ${lowestPricedItem.product}.`;
+  })(),
 };
 
 console.log(productsData);
