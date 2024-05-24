@@ -83,6 +83,12 @@ const productsData = {
       acc += parseInt(product.price); // Convert price to number and add to accumulator
       return acc;
     }, 0),
+
+  // Concatenate all product names into a single string.
+  concatenatedProductNames: products.reduce(
+    (acc, product) => acc + product.product,
+    ""
+  ),
 };
 
 console.log(productsData);
