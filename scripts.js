@@ -39,7 +39,9 @@ provinces.sort();
 console.log(provinces);
 
 // Filtering Cape: Removes provinces containing "Cape". Logs the count of remaining provinces.
-const provincesWithoutCape = provinces.filter((province) => !province.includes("Cape"));
+const provincesWithoutCape = provinces.filter(
+  (province) => !province.includes("Cape")
+);
 console.log(provincesWithoutCape.length);
 
 // Finding 'S': Creates a boolean array to determine if a name contains the letter 'S'.
@@ -52,7 +54,6 @@ const nameProvinceMap = names.reduce((acc, name, index) => {
   return acc;
 }, {});
 console.log(nameProvinceMap);
-
 
 /*       Advanced Exercises       */
 
@@ -74,6 +75,14 @@ const productsData = {
   productsFilteredByNameLength: products
     .filter((name) => name.product.length <= 5)
     .map((name) => name.product),
+
+  // Filters out products without prices, converts string prices to numbers & calculates the total price.
+  totalPrice: products
+    .filter((product) => product.price && product.price !== " ") // Filter products with prices
+    .reduce((acc, product) => {
+      acc += parseInt(product.price); // Convert price to number and add to accumulator
+      return acc;
+    }, 0),
 };
 
 console.log(productsData);
